@@ -10,9 +10,13 @@ local nvim_tree_functions = require('plugins.spec_functions.nvim_tree_functions'
 nv_tree = require("nvim-tree")
 
 
--- ***********************************************************************
--- * Redéfinition du mapping pour des appels à des fonctions spécifiques *
--- ***********************************************************************
+-- ********************************************************************************
+-- * Redéfinition du mapping pour des appels à des fonctions spécifiques          *
+-- *                                                                              *
+-- * Pour le mapping par défaut, voit :                                           *
+-- * https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt *
+-- * A partir de la ligne 2338 du fichier                                         *
+-- ********************************************************************************
 local function my_on_attach(bufnr)
   local api = require("nvim-tree.api")
 
@@ -23,14 +27,17 @@ local function my_on_attach(bufnr)
   -- Copier les mappings par défaut :
   api.config.mappings.default_on_attach(bufnr)
 
-  -- Supprimer le mapping par défaut pour 'd' :
+  -- Supprimer les mapping par défaut pour 'd', 'a' :
   vim.keymap.del('n', 'd', { buffer = bufnr })
+  vim.keymap.del('n', 'a', { buffer = bufnr })
 
-  -- Ajout du mapping pour la touche 'd', appel de la fonction 'confirm_remove' dans 'nvim_tree_functions.lua' :
+  -- Ajout des nouvelles fonctionnalités pour les touches 'd', 'a' : 
   vim.keymap.set("n", "d", function()
-    local node = api.tree.get_node_under_cursor()
-    nvim_tree_functions.confirm_remove(node)
+      nvim_tree_functions.confirm_remove(api.tree.get_node_under_cursor())
   end, opts("Supprimer (français)"))
+  vim.keymap.set("n", "a", function()
+      nvim_tree_functions.create_file_or_repertory(api.tree.get_node_under_cursor())
+  end, opts("Créer fichier (français)"))
 end
 
 
@@ -116,7 +123,14 @@ nv_tree.setup({
         },
     },
 
+    experimental = {
+        actions = {
+            open_file = { relative_path = true },  -- Activer l'ouverture de fichiers avec chemins relatifs (:ls)
+        },
+    },
+
     on_attach = my_on_attach,     -- Attacher les redéfinitions de mapping
+
 })
 
 

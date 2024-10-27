@@ -1,0 +1,28 @@
+************************************
+* ~/.config/nvim/Doc/CheeSheat.txt *
+************************************
+
+
+----------------------
+----  nvim-tree   ----
+-- doc - ligne 2337 --
+----------------------
+- <Ctrl + k> : affiche des informations sur le fichier ou répertoire
+- <Ctrl + r> : renomme le fichier ou répertoire
+- <Ctrl + t> : ouvre le fichier dans un nouveau buffer
+- <Ctrl + v> : ouvre le fichier dans un nouveau buffer (verticalement)
+- <Ctrl + x> : ouvre le fichier dans un nouveau buffer (horizontalement)
+- <BackSpace> : Ferme l'arborescence du répertoire ouvert pour revenir au répertoire parent
+- <Entrée> : ouvre le fichier (avec focus sur le fichier) ou l'arborescence du répertoire
+- <Tab> : idem, mais sans focus sur le fichier
+- '<' ou '>' : permet de naviguer entre les fichiers dans l'arboresence, mais sans sortir du répertoire où sont contenus les fichiers
+- <Ctrl + ]> : Permet de définir le répertoire où se situe le curseur comme étant le répertoire racine dans l'arborescence
+- '-' : Change le répertoire parent du répertoire racine de l'arborescence devient le nouveau répertoire racine
+- <a> : Crée un fichier ou répertoire
+- <r> : Renomer un fichier ou un répertoire
+... Cf. autres.
+
+
+
+
+

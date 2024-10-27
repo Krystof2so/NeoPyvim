@@ -1,0 +1,5 @@
+# Nvim-Tree
+
+Configuration de **nvim-tree**... Bon, au final j'ai juste francisé la suppression et la création de fichiers/répertoires. Le problème est que les messages en anglais sont insérés dans les *api* .... faudrait toutes les re-écrires 😱  pour faire un *plugin* entièrement francisé. Pour la suppression j'ai bloqué la possibilité de supprimer le répertoire racine dans la vue de *nvim-tree* (sait-on jamais), il suffit de remonter d'un répertoire si vraiment on tient à le faire. 
+Pour la création j'ai utilisé des *regex* pour empêcher certaines écritures (pas de caractères non alphanumériques dans les noms, hormis l'*underscore* et le *point*), puis la gestion des doublons (pas de fichier qui porte un nom similaire à un nom de répertoire frère, si le fichier n'as pas d'extension, et vice-et-versa). Du coup, j'ai modifié le mapping pour les touches **a** et **d**, de façon à pointer sur les fonctions correspondantes.
+L'*api* est dense, elle sera intéressante à exploiter pour d'autres fonctionnalités.
