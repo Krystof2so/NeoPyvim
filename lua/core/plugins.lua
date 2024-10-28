@@ -8,13 +8,14 @@ local api = vim.api
 
 return {
 
--- *****************************************
--- * INTERFACE                             *
--- *                                       *
--- * - nordic (thème)                      *
--- * - lualine (barre d'état)              *
--- * - nvim-tree (explorateur de fichiers) *
--- *****************************************
+-- *******************************************************
+-- * INTERFACE                                           *
+-- *                                                     *
+-- * - nordic (thème)                                    *
+-- * - lualine (barre d'état)                            *
+-- * - nvim-tree (explorateur de fichiers)               *
+-- * - bufferline (gestionnaire de buffers avec onglets) *
+-- *******************************************************
 
     { -- Thème nordic
       'AlexvZyl/nordic.nvim', lazy = false, priority = 1000, branch = 'main',
@@ -38,6 +39,14 @@ return {
       config = function()
         require("plugins.nvim-tree")
       end
+    },
+
+    { -- bufferline : gestionnaire de buffers sous forme d'onglets
+        'akinsho/bufferline.nvim', version = "*", lazy = false, 
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require("plugins.bufferline")
+        end
     },
 
 }
