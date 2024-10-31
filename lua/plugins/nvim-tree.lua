@@ -8,6 +8,7 @@
 local nvim_tree_functions = require('plugins.spec_functions.nvim_tree_functions')
 
 nv_tree = require("nvim-tree")
+local api = require("nvim-tree.api")
 
 
 -- ********************************************************************************
@@ -18,7 +19,6 @@ nv_tree = require("nvim-tree")
 -- * A partir de la ligne 2338 du fichier                                         *
 -- ********************************************************************************
 local function my_on_attach(bufnr)
-  local api = require("nvim-tree.api")
 
   local function opts(desc)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -92,10 +92,14 @@ nv_tree.setup({
         },
     },
 
-    update_focused_file = { enable = true, },     -- Synchronisation de l'arborescence au regard des fichiers ouverts
+    update_focused_file = { 
+        enable = true,         -- Synchronisation de l'arborescence au regard des fichiers ouverts
+        update_cwd = true,     --
+    }, 
 
     git = {
         enable = true,     -- Intégration Git activée
+        ignore = true,
     },
 
     diagnostics = {
@@ -109,9 +113,7 @@ nv_tree.setup({
         },
     },
    
-    modified = {
-        enable = true,  -- Active la détection des fichiers modifiés
-    },
+    modified = { enable = true, },         -- Active la détection des fichiers modifiés
     
     notify = { absolute_path = true },     -- Affiche le chemin complet d'un fichier dans les notifications
 
@@ -133,4 +135,16 @@ nv_tree.setup({
 
 })
 
+
+-- **************************************************************************
+-- * Fonction pour ouvrir automatiquement nvim-tree à l'ouverture de Neovim *
+-- **************************************************************************
+local function open_nvim_tree(data)
+    if data.file == "" then api.tree.open()
+    end
+end
+
+
+-- Attache l'événement VimEnter pour ouvrir nvim-tree :
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 

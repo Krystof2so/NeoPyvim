@@ -4,6 +4,7 @@
 -- * Functions utilisées par 'nvim_tree.lua :                                     *
 -- * - format_root_folder : formatage du nom du dossier racine                    *
 -- * - confirm_remove : suppression fichier francisée                             *
+-- * - create_file_or_repertory : ajout fichier/répértoire francisé               *
 -- *                                                                              *
 -- * Pour les api de nvim-tree, voir :                                            *
 -- * https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt *
@@ -60,7 +61,7 @@ function M.confirm_remove(node)
 end
 
 -- **************************************************************
--- * Fonction d' ajout de fichier ou dossier avec la touche 'a' *
+-- * Fonction d'ajout de fichier ou dossier avec la touche 'a'  *
 -- * Redéfinit le mapping de la touche 'a' dans 'nvim-tree.lua' *
 -- **************************************************************
 function M.create_file_or_repertory(node)

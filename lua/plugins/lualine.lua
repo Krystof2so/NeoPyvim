@@ -4,7 +4,6 @@
 -- * Barre d'état                                     *
 -- ****************************************************
 
-
 local lualine = require("lualine")
 
 

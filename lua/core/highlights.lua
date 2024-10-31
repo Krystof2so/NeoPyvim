@@ -28,12 +28,12 @@ api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#d08770" })  -- Fichiers modifié
 api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#6fbe6a" })  -- Fichiers ajoutés (git) / Vert clair                           
 api.nvim_set_hl(0, "NvimTreeSpecialFile", { fg = "#bfa6ff", bold = true })  -- Fichiers spéciaux / Mauve / Gras
 
--- Dossier ouvert / Fond noir, couleur fg dépendante de l'état de git ou par défaut bleu :
-api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = "#5e81ac", bg = "#000000", bold = true })  -- Par défaut Bleu
+-- Dossier ouvert : couleur fg dépendante de l'état de git ou par défaut bleu :
+api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = "#5e81ac", bold = true })  -- Par défaut Bleu
 
--- États git appliqués à NvimTreeOpenedFolderName pour conserver le fond noir :
-api.nvim_set_hl(0, "NvimTreeOpenedFolderNameDirty", { fg = "#d08770", bg = "#000000" })  -- Modifié / Orange
-api.nvim_set_hl(0, "NvimTreeOpenedFolderNameNew", { fg = "#6fbe6a", bg = "#000000" })  -- Nouvellement ajouté / Vert clair
+-- États git appliqués à NvimTreeOpenedFolderName :
+api.nvim_set_hl(0, "NvimTreeOpenedFolderNameGitDirty", { fg = "#d08770" })  -- Modifié / Orange
+api.nvim_set_hl(0, "NvimTreeOpenedFolderNameGitNew", { fg = "#6fbe6a" })  -- Nouvellement ajouté / Vert clair
 
 -- Erreurs de diagnostic / Fond rouge clair avec texte blanc / Gras :
 api.nvim_set_hl(0, "NvimTreeDiagnosticError", { bg = "#bf616a", fg = "#eceff4", bold = true }) 
@@ -41,3 +41,9 @@ api.nvim_set_hl(0, "NvimTreeDiagnosticError", { bg = "#bf616a", fg = "#eceff4", 
 -- Avertissements de diagnostic / Fond orange clair avec texte noir / Gras :
 api.nvim_set_hl(0, "NvimTreeDiagnosticWarning", { bg = "#d08770", fg = "#2e3440", bold = true })
 
+
+-- ******************************
+-- * Couleurs pour 'bufferline' *
+-- ******************************
+-- Définies dans ~/.config/nvim/lua/plugins/bufferline.lua, pour éviter qu'elle soient écrasées après le chargement de
+-- 'bufferline'
