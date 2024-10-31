@@ -25,6 +25,13 @@ return {
       end
     },
 
+    {
+        'goolord/alpha-nvim', lazy = true, event = "VimEnter",
+        config = function ()
+	        require("plugins.alpha")
+	    end,
+	},
+
     { -- Lualine : pour la barre d'état
       'nvim-lualine/lualine.nvim', lazy = false, 
       dependencies = { 'nvim-tree/nvim-web-devicons' },
