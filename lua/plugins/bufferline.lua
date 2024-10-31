@@ -6,7 +6,6 @@
 
 
 local bufferline = require("bufferline")
-local bufferline_functions = require("plugins.spec_functions.bufferline_functions")
 
 -- *******************************
 -- * Configuration de bufferline *
