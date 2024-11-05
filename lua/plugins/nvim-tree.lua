@@ -139,12 +139,12 @@ nv_tree.setup({
 -- **************************************************************************
 -- * Fonction pour ouvrir automatiquement nvim-tree à l'ouverture de Neovim *
 -- **************************************************************************
-local function open_nvim_tree(data)
-    if data.file == "" then api.tree.open()
-    end
-end
+--local function open_nvim_tree(data)
+--    if data.file == "" then api.tree.open()
+--    end
+--end
 
 
 -- Attache l'événement VimEnter pour ouvrir nvim-tree :
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+--vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 

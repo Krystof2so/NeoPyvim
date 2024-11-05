@@ -25,7 +25,7 @@ return {
       end
     },
 
-    {
+    { -- Alpha : page d'accueil
         'goolord/alpha-nvim', lazy = true, event = "VimEnter",
         config = function ()
 	        require("plugins.alpha")
