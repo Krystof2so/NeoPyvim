@@ -57,4 +57,18 @@ return {
     },
 
 
+-- *************
+-- * FINDERS   *
+-- *           *
+-- * - fzf.lua *
+-- *************
+
+    { -- fzf-lua : basé sur la bibliothèque 'fzf'
+        'ibhagwan/fzf-lua', lazy = false,
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require("plugins.fzf")
+        end
+    },
+
 }
