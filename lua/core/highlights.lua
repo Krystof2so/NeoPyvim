@@ -41,9 +41,3 @@ api.nvim_set_hl(0, "NvimTreeDiagnosticError", { bg = "#bf616a", fg = "#eceff4", 
 -- Avertissements de diagnostic / Fond orange clair avec texte noir / Gras :
 api.nvim_set_hl(0, "NvimTreeDiagnosticWarning", { bg = "#d08770", fg = "#2e3440", bold = true })
 
-
--- ******************************
--- * Couleurs pour 'bufferline' *
--- ******************************
--- Définies dans ~/.config/nvim/lua/plugins/bufferline.lua, pour éviter qu'elle soient écrasées après le chargement de
--- 'bufferline'

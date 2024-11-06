@@ -49,23 +49,32 @@ dashboard.section.datetime = {
     }
 }
 
--- Configuration de la disposition des boutons du menu
+-- Fonction pour créer des boutons
+local function create_button(shortcut, label, command)
+   return dashboard.button(shortcut, label, command)
+end
+-- Configuration des boutons du menu
 dashboard.section.buttons.val = {
-    dashboard.button("***", "🔍  Find File"),
-    dashboard.button("***", "📄  New File"),
-    dashboard.button("***", "📂  Recent Files"),
-    dashboard.button("e", "🗃️  Ouvre l'explorateur de fichiers", ":NvimTreeToggle<CR>"),
-    dashboard.button("p", "💤  Ouvre le gestionnaire de plugins", ":Lazy<CR>"),
-    dashboard.button("q", "❌  Quitter", ":q<CR>"),
+    create_button("*?*", "🔍  Find File"),
+    create_button("*?*", "📄  New File"),
+    create_button("*?*", "📂  Recent Files"),
+    create_button("e", "🗃️  Ouvre l'explorateur de fichiers", ":NvimTreeToggle<CR>"),
+    create_button("p", "💤  Ouvre le gestionnaire de plugins", ":Lazy<CR>"),
+    create_button("q", "❌  Quitter", ":qa<CR>"),
 }
 
--- Configuration de la disposition finale, avec un affichage centré
-dashboard.opts.layout = {
-    dashboard.section.header,      -- En-tête en ASCII art
-    { type = "padding", val = 1 }, -- Espacement entre les sections
-    dashboard.section.datetime,    -- Affichage de la date et de l'heure
-    { type = "padding", val = 2 }, -- Espacement entre la date/heure et le menu
-    dashboard.section.buttons      -- Menu des boutons
+-- Configuration des options
+dashboard.opts = {  -- Configuration de la disposition finale, avec un affichage centré
+    layout = {
+        dashboard.section.header,      -- En-tête en ASCII art
+        { type = "padding", val = 1 }, -- Espacement entre les sections
+        dashboard.section.datetime,    -- Affichage de la date et de l'heure
+        { type = "padding", val = 2 }, -- Espacement entre la date/heure et le menu
+        dashboard.section.buttons,     -- Menu des boutons
+    },
+    keymap = {
+        press = '<CR>', -- Appuyer sur <Enter> pour sélectionner un élément du menu
+    },
 }
 
 
