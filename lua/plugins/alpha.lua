@@ -61,8 +61,7 @@ dashboard.section.buttons.val = {
     create_button("d", "📂  Rechercher fichier dans un répertoire", function()
         fzf_functions.search_in_directory()
     end),
-    create_button("*?*", "📄  New File"),
-    create_button("*?*", "📂  Recent Files"),
+    create_button("r", "⌛  Fichiers récemment ouverts", ":FzfLua oldfiles<CR>"),
     create_button("e", "🗃️  Ouvre l'explorateur de fichiers", ":NvimTreeToggle<CR>"),
     create_button("p", "💤  Ouvre le gestionnaire de plugins", ":Lazy<CR>"),
     create_button("q", "❌  Quitter", ":qa<CR>"),
