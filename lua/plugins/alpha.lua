@@ -1,3 +1,5 @@
+local fzf_functions = require("plugins.spec_functions.fzf_functions")
+
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
@@ -55,7 +57,10 @@ local function create_button(shortcut, label, command)
 end
 -- Configuration des boutons du menu
 dashboard.section.buttons.val = {
-    create_button("*?*", "🔍  Find File"),
+    create_button("f", "🔍  Rechercher fichier (répertoire courant)", ":FzfLua files<CR>"),
+    create_button("d", "📂  Rechercher fichier dans un répertoire", function()
+        fzf_functions.search_in_directory()
+    end),
     create_button("*?*", "📄  New File"),
     create_button("*?*", "📂  Recent Files"),
     create_button("e", "🗃️  Ouvre l'explorateur de fichiers", ":NvimTreeToggle<CR>"),

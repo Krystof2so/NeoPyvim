@@ -6,6 +6,8 @@
 
 vim.g.mapleader = ' ' -- Définir la touche leader sur Espace
 
+local fzf_functions = require("plugins.spec_functions.fzf_functions")
+
 
 -- ************************************************************************
 -- * Fonction pour définir des mappages avec noremap et silent par défaut *
@@ -54,6 +56,9 @@ local normal_mapping = {
     { '<Tab>', ':BufferLineCycleNext<CR>', 'Buffer suivant' },
     { '<S-Tab>', ':BufferLineCyclePrev<CR>', 'Buffer précédent' },
     { '<leader>bd', ':bd<CR>', "Fermer l'onglet actif" }, 
+    -- Mappind pour fzf-lua :
+    { 'ff', ':FzfLua files<CR>', "Rechercher un fichier" },
+    { 'fd', fzf_functions.search_in_directory, "Rechercher dans un répertoire spécifié" },
     -- Mapping pour Lazy.vim :
     {'zz', ':Lazy<CR>'},        -- Ouvrir Lazy
     {'zs', ':Lazy sync<CR>'},   -- Synchroniser
