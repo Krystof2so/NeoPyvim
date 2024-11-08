@@ -59,6 +59,7 @@ local normal_mapping = {
     -- Mappind pour fzf-lua :
     { 'ff', ':FzfLua files<CR>', "Rechercher un fichier" },
     { 'fd', fzf_functions.search_in_directory, "Rechercher dans un répertoire spécifié" },
+    { 'fg', ':FzfLua live_grep<CR>', 'Rechercher un motif dans un fichier du projet' },
     -- Mapping pour Lazy.vim :
     {'zz', ':Lazy<CR>'},        -- Ouvrir Lazy
     {'zs', ':Lazy sync<CR>'},   -- Synchroniser

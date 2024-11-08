@@ -22,4 +22,21 @@ Deux façon d'y accèder :
 - **tabs** : Affiche les onglets ouverts
 - **args** : Va permettre de définir un groupe de fichiers
 
+### Rechercher des motifs dans les fichiers
+
+- **grep** : Pour trouver du texte ou du code dans un fichier à l'aide d'un motif
+- **grep_last** : Relance la dernière recherche (dernier motif) effectuée avec **grep**
+- **grep_cword** : Recherche lancer à partir du motif sous le curseur
+- **grep_visual** : Recherche le motif sélectionné depuis le mode *visual*
+- **grep_project** : Recherche le motif (via Rg) dans toutes les lignes des fichiers du projet
+- **grep_curbuf** : Recherche le motif (via Rg) dans toutes les lignes du buffer actif
+- **grep_quickfix** : Recherche un motif dans la liste *quickfix* de *Neovim* (erreurs et avertissements)
+- **lgrep_curbuf** : Similaire à **grep_curbuf** mais en mode live (bien plus visuel)
+- **lgrep_quickfix** : Similaire à **grep_quickfix** mais en mode live (bien plus visuel)
+- **grep_live** : Rechercher un motif dans un fichier en mode live
+- **grep_live_resume** : Dernière recherche du mode live (permet de repartir avec le même motif)
+- **greo_live_native** : Similaire à **grep_live**, mais plus performant pour de grands projets
+
+
+
 
