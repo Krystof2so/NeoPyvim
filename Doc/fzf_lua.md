@@ -37,6 +37,13 @@ Deux façon d'y accèder :
 - **grep_live_resume** : Dernière recherche du mode live (permet de repartir avec le même motif)
 - **greo_live_native** : Similaire à **grep_live**, mais plus performant pour de grands projets
 
+### Recherches avec *git*
+Les commandes suivantes permettes d'accédder à certaines fonctionnalités de **git** en restant sur *Neovim*, donc sans avoir besoin d'ouvrir un terminal :
 
+- **git_status** : affiche l'état des fichiers
+- **git_commits** : Liste les *commits* et propose un aperçu
+- **git_bcommits** : Liste uniquement les *commits* qui ont affecté le *buffer* ouvert (correspond à un historique des modifications du fichier )
+- **git_blame** : Cette commande montre pour chaque ligne de code l'auteur, la date, et le hash du commit correspondant.
+- **git_branches** : Permet de basculer d'une branche à l'autre
 
 
