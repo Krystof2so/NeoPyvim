@@ -46,4 +46,22 @@ Les commandes suivantes permettes d'accédder à certaines fonctionnalités de *
 - **git_blame** : Cette commande montre pour chaque ligne de code l'auteur, la date, et le hash du commit correspondant.
 - **git_branches** : Permet de basculer d'une branche à l'autre
 
+### Outils divers de recherche
+
+- **resume** : relance la dernière recherche
+- **builtin** : lancer une recherche en affichant toutes commandes intégrées
+- **helptags** : Pour lancer une recherche dans la documentation de *Neovim* et des *plugins* installés
+- **manpages** : Afficher des pages de manuel des commandes système
+- **colorschemes** : Liste et permet de changer les schémas de couleur de *Neovim*.
+- **highlights** : Permet d'effecuer une recherche parmi les groupes de *highlights*
+- **commands** : Affiche toutes les commandes disponibles avec *Neovim*
+- **command_history** : Affiche l'historique des commandes
+- **marks** : Liste les *marks*
+- **jumps** : Affiche l'historique des déplacements. Cela permet de revenir aux endroits (lignes et fichiers) précédemments visités
+- **changes** : Liste les lignes précédemments modifiées dans le fichier courant
+- **registers** : Affiche le contenu des registres (texte copié) et permet de l'insérer là où se situe le curseur
+- **autocmds** : Affiche la liste des autocmds (commandes automatiques) actuellement en cours.
+- **keymaps** : Affiche la liste des raccourcis claviers définis
+- **filetypes** : Affiche la liste des fichiers reconnus par *Neovim*
+- **spell_suggest** : Propose des suggestions de correction pour le mot sous le curseur
 
