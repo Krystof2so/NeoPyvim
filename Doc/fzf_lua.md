@@ -65,3 +65,10 @@ Les commandes suivantes permettes d'accédder à certaines fonctionnalités de *
 - **filetypes** : Affiche la liste des fichiers reconnus par *Neovim*
 - **spell_suggest** : Propose des suggestions de correction pour le mot sous le curseur
 
+### Les fonctions de complétion
+
+- **complete_path** : Complète le chemin sous le curseur, en incluant aussi bien les fichiers que les répertoires
+- **complete_file** : Complète uniquement les fichiers sous le curseur, en excluant les répertoires
+- **complete_line** : Complète des lignes entières en recherchant parmi toutes les lignes de tous les *buffers* ouverts
+- **complete_bline** : Complète des lignes entières, mais uniquement dans le *buffer* actuel
+
