@@ -72,3 +72,18 @@ Les commandes suivantes permettes d'accédder à certaines fonctionnalités de *
 - **complete_line** : Complète des lignes entières en recherchant parmi toutes les lignes de tous les *buffers* ouverts
 - **complete_bline** : Complète des lignes entières, mais uniquement dans le *buffer* actuel
 
+## Raccourcis clavier spécifiques (avec *fzf* ouvert)
+
+- **<F1>** : Affichage d'une aide
+- **<F2>** : Bascule en mode plein écran
+- **<F3>** : Permet de visualiser les lignes complètes dans la prévisualisation si les lignes du fichier sont trop longues
+- **<F4>** : Affichage ou pas de la prévisualisation
+- **<Shift + flèche du bas>** ou **<Fléche du haut>** : Défilement de page en page dans la prévisualisation
+- **<Alt + Shift + Fléche du bas>** ou **<Fléche du haut>** : Défilement ligne par ligne dans la prévisualisation
+- **<Esc>** ou **<Ctrl + Z>** : Quitte l'interface *fzf*
+
+## Raccourcis d'actions sur les fichiers sélectionnés
+
+- **<Ctrl-S>** : Ouvre le fichier dans un split horizontal
+- **<Ctrl-V>** : Ouvre le fichier dans un split vertical
+- **<Ctrl-T>** : Ouvre le fichier dans un nouvel onglet
