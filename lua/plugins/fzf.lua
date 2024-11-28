@@ -33,5 +33,8 @@ fzf.setup({'fzf-native',  -- Choix du profil 'fzf-native'
             ["svg"] = { "chafa", "{file}" },   -- Utilise `chafa` pour les SVG
         },
     },
+    files = {
+        path_shorten = 6,  -- Nbre de caractères max dans le nom de chaque répertoire d'un chemin
+    },
 
 }) 
