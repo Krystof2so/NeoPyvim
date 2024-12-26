@@ -11,7 +11,7 @@ return {
 -- *******************************************************
 -- * INTERFACE                                           *
 -- *                                                     *
--- * - nordic (thème)                                    *
+-- * - nord (thème)                                    *
 -- * - lualine (barre d'état)                            *
 -- * - nvim-tree (explorateur de fichiers)               *
 -- * - bufferline (gestionnaire de buffers avec onglets) *
@@ -20,18 +20,9 @@ return {
     { -- Thème nord
         "shaunsingh/nord.nvim", lazy = false, priority = 1000,
         config = function()
-            -- Chargez et configurez le thème Nord
-            vim.cmd("colorscheme nord")
+            require("plugins.nord")
         end,
     },
-
-    --{ -- Thème nordic
-    --'AlexvZyl/nordic.nvim', lazy = false, priority = 1000, branch = 'main',
-    --config = function()
-    --  require('nordic').load()
-    --  vim.cmd("colorscheme nordic") -- Activation du thème        
-    --end
-    --},
 
     { -- Alpha : page d'accueil
         'goolord/alpha-nvim', lazy = true, event = "VimEnter",

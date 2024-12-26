@@ -21,7 +21,7 @@ end
 lualine.setup({
 
     options = { -- Aspects visuels de la barre d'état
-        theme = 'iceberg_dark',
+        theme = 'nord',
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
     },

@@ -6,6 +6,13 @@
 
 
 local bufferline = require("bufferline")
+local highlights = require("nord").bufferline.highlights({
+    italic = true,
+    bold = true,
+    fill = { bg = "NONE" },                -- Fond transparent pour la barre de buffer
+    background = { bg = "#3B4252" },       -- Fond bleu pour les buffers inactifs (nord1)
+    buffer_selected = { bg = "#4C566A" },  -- Fond bleu clair pour les buffers actifs (nord2)
+})
 
 -- *******************************
 -- * Configuration de bufferline *
@@ -35,6 +42,7 @@ bufferline.setup({
         },
         close_command = false,  -- Désactive la commande de fermeture par clic à l'emplacement de l'icône de fermeture
     },
+    highlights = higlights,  -- Utiliser les surlignages définis
 })
 
 
