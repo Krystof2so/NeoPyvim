@@ -65,7 +65,8 @@ dashboard.section.buttons.val = {
     create_button("x", "🔎  Lancer une recherche avec 'fzf'", ":FzfLua builtin<CR>"), 
     create_button("e", "🗃️  Ouvre l'explorateur de fichiers", ":NvimTreeToggle<CR>"),
     create_button("p", "💤  Ouvre le gestionnaire de plugins", ":Lazy<CR>"),
-    create_button("h", "🆘  Aide (recherche avec tags", ":FzfLua helptags<CR>"),
+    create_button("m", "📦  Ouvre le gestionnaire 'Mason'", ":Mason<CR>"),
+    create_button("h", "🆘  Aide (recherche avec tags)", ":FzfLua helptags<CR>"),
     create_button("q", "❌  Quitter", ":qa<CR>"),
 }
 

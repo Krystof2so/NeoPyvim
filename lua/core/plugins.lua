@@ -61,8 +61,60 @@ return {
     },
 
 
+-- *****************************************************************
+-- * Language Server Protocol                                      *
+-- *                                                               *
+-- * mason : gestionnaire serveurs LSP, linters, DAP et formatters *
+-- *****************************************************************
+
+    {  -- mason
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate", -- Met à jour automatique des registres de Mason au démarrade de Neovim
+        event = "VeryLazy",     -- Charge Mason dès que Neovim est prêt à interagir
+        config = function()
+            require("plugins.mason")
+        end
+    },
+
+    {  -- mason-lspconfig
+        "williamboman/mason-lspconfig.nvim",
+        event = { "VeryLazy" },
+        dependencies = { "williamboman/mason.nvim" },
+        config = function()
+            require("plugins.mason_lspconfig")
+        end,
+    },
+
+    {  -- nvim-lspconfig
+        "neovim/nvim-lspconfig",
+        event = { "VeryLazy" },
+        dependencies = { "williamboman/mason-lspconfig.nvim" },
+        config = function()
+            require("plugins.lspconfig")
+        end,
+    },
+
+-- **********************************************************************
+-- * Configuration de nvim-cmp (autocomplétion) avec ses dépendances    *
+-- **********************************************************************
+
+    {
+        "hrsh7th/nvim-cmp",
+        event = "InsertEnter", -- Charge nvim-cmp lorsqu'on entre en mode insertion
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",  -- Source pour l'autocomplétion LSP
+            "hrsh7th/cmp-buffer",    -- Source pour l'autocomplétion dans le buffer courant
+            "hrsh7th/cmp-path",      -- Source pour l'autocomplétion des chemins
+            "hrsh7th/cmp-vsnip",     -- Intégration avec un snippet engine
+            "hrsh7th/vim-vsnip",     -- Snippet engine (optionnel)
+        },
+        config = function()
+            require("plugins.cmp_nvim")
+        end,
+    },
+
 -- ******************************************
--- * OUTILS                                 *
+--                                  *
 -- *                                        *
 -- * - fzf.lua : findder                    *
 -- * - nvim-treesitter : analyse syntaxique *
@@ -74,10 +126,6 @@ return {
         config = function()
             require("plugins.fzf")
         end
-    },
-
-    {
-        "williamboman/mason.nvim"
     },
 
     { -- nvim-treesitter : analyseur syntaxique
