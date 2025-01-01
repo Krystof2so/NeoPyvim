@@ -17,8 +17,8 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ["<C-Space>"] = cmp.mapping.complete(),           -- Ouvrir le menu d'autocomplétion
     ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Confirmer la suggestion sélectionnée
-    ["<Tab>"] = cmp.mapping.select_next_item(),       -- Naviguer vers l'élément suivant
-    ["<S-Tab>"] = cmp.mapping.select_prev_item(),     -- Naviguer vers l'élément précédent
+    ["<Tab>"] = cmp.mapping.select_next_item(),
+    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
   }),
 
   -- Comportement de l'affichage

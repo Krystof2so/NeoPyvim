@@ -15,7 +15,7 @@ local api = vim.api
 api.nvim_set_hl(0, 'LineNr', { fg = '#81a1c1', bg = '#2e3440' })                    -- Numéros de ligne inactifs
 api.nvim_set_hl(0, 'CursorLineNr', { fg = '#2e3440', bg = '#5e81ac', bold = true }) -- Numéros de ligne actifs
 
-vim.api.nvim_set_hl(0, "Comment", { fg = "#564453", italic = true })                -- Commentaires
+vim.api.nvim_set_hl(0, "Comment", { fg = "#d08770", italic = true })                -- Commentaires
 
 
 -- *****************************

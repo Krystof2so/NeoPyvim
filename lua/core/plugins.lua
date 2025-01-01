@@ -61,38 +61,36 @@ return {
     },
 
 
--- *****************************************************************
--- * Language Server Protocol                                      *
--- *                                                               *
--- * mason : gestionnaire serveurs LSP, linters, DAP et formatters *
--- *****************************************************************
+-- ************************************************************
+-- * Configuration des plugins liés au LSP                    *
+-- * La configuration de tous les plugins (nvim-lspconfig,    *
+-- * mason.nvim, mason-lspconfig.nvim) se fait dans une seule *
+-- * définition de dépendance.                                *
+-- ************************************************************
 
-    {  -- mason
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate", -- Met à jour automatique des registres de Mason au démarrade de Neovim
-        event = "VeryLazy",     -- Charge Mason dès que Neovim est prêt à interagir
-        config = function()
-            require("plugins.mason")
-        end
-    },
-
-    {  -- mason-lspconfig
-        "williamboman/mason-lspconfig.nvim",
-        event = { "VeryLazy" },
-        dependencies = { "williamboman/mason.nvim" },
-        config = function()
-            require("plugins.mason_lspconfig")
-        end,
-    },
-
-    {  -- nvim-lspconfig
+    {
         "neovim/nvim-lspconfig",
-        event = { "VeryLazy" },
-        dependencies = { "williamboman/mason-lspconfig.nvim" },
+        event = { "VeryLazy" }, 
+        dependencies = {
+            {
+                "williamboman/mason.nvim",
+                build = ":MasonUpdate",
+                config = function()
+                    require("plugins.mason")
+                end,
+            },
+            {
+                "williamboman/mason-lspconfig.nvim",
+                config = function()
+                    require("plugins.mason_lspconfig")
+                end,
+            },
+        },
         config = function()
             require("plugins.lspconfig")
         end,
     },
+
 
 -- **********************************************************************
 -- * Configuration de nvim-cmp (autocomplétion) avec ses dépendances    *
@@ -100,7 +98,6 @@ return {
 
     {
         "hrsh7th/nvim-cmp",
-        event = "InsertEnter", -- Charge nvim-cmp lorsqu'on entre en mode insertion
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",  -- Source pour l'autocomplétion LSP
             "hrsh7th/cmp-buffer",    -- Source pour l'autocomplétion dans le buffer courant
