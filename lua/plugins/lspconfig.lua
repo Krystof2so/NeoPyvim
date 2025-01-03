@@ -9,7 +9,8 @@ local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup_handlers({
     -- Gestionnaire par défaut pour les serveurs LSP
     function(server_name)
-        lspconfig[server_name].setup({})
+        lspconfig[server_name].setup({
+        })
     end,
 
     -- Configuration spécifique pour certains serveurs LSP

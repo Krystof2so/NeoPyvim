@@ -4,8 +4,6 @@
 -- * Plugins installés                   *
 -- ***************************************
 
-local api = vim.api
-
 return {
 
 -- *******************************************************
@@ -32,10 +30,10 @@ return {
 	},
 
     { -- Lualine : pour la barre d'état
-      'nvim-lualine/lualine.nvim', lazy = false, 
+      'nvim-lualine/lualine.nvim', lazy = false,
       dependencies = { 'nvim-tree/nvim-web-devicons' },
-      config = function() 
-        require('plugins.lualine') 
+      config = function()
+        require('plugins.lualine')
       end 
     },
 
@@ -48,7 +46,7 @@ return {
     },
 
     { -- bufferline : gestionnaire de buffers sous forme d'onglets
-        'akinsho/bufferline.nvim', version = "*", lazy = false, 
+        'akinsho/bufferline.nvim', version = "*", lazy = false,
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = function()
             require("plugins.bufferline")
@@ -70,7 +68,7 @@ return {
 
     {
         "neovim/nvim-lspconfig",
-        event = { "VeryLazy" }, 
+        event = { "VeryLazy" },
         dependencies = {
             {
                 "williamboman/mason.nvim",
@@ -98,12 +96,14 @@ return {
 
     {
         "hrsh7th/nvim-cmp",
+        event = "InsertEnter", -- Charge nvim-cmp lorsqu'on entre en mode insertion
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",  -- Source pour l'autocomplétion LSP
             "hrsh7th/cmp-buffer",    -- Source pour l'autocomplétion dans le buffer courant
             "hrsh7th/cmp-path",      -- Source pour l'autocomplétion des chemins
             "hrsh7th/cmp-vsnip",     -- Intégration avec un snippet engine
             "hrsh7th/vim-vsnip",     -- Snippet engine (optionnel)
+            "L3MON4D3/LuaSnip",
         },
         config = function()
             require("plugins.cmp_nvim")
