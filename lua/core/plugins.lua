@@ -110,12 +110,22 @@ return {
         end,
     },
 
--- ******************************************
---                                  *
--- *                                        *
--- * - fzf.lua : findder                    *
--- * - nvim-treesitter : analyse syntaxique *
--- ******************************************
+-- ************************************************************
+-- * Installation d'outils divers                             *
+-- *                                                          *
+-- * - nvim-autopairs : fermeture automatique des parenthèses *                       
+-- * - fzf.lua : findder                                      *
+-- * - nvim-treesitter : analyse syntaxique                   *
+-- ************************************************************
+
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("plugins.autopairs")
+        end,
+    },
+
 
     { -- fzf-lua : basé sur la bibliothèque 'fzf'
         'ibhagwan/fzf-lua', lazy = true, event = "VimEnter",
