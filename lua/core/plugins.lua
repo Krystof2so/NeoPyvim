@@ -24,9 +24,9 @@ return {
 
     { -- Alpha : page d'accueil
         'goolord/alpha-nvim', lazy = true, event = "VimEnter",
-        config = function ()
+        config = function()
 	        require("plugins.alpha")
-	    end,
+        end,
 	},
 
     { -- Lualine : pour la barre d'état
@@ -110,12 +110,25 @@ return {
         end,
     },
 
+    {
+        "L3MON4D3/LuaSnip",
+        version = "1.*",  -- Pour la version stable
+        build = "make install_jsregexp",
+        dependencies = {
+            "rafamadriz/friendly-snippets",  -- Collection de snippets pré-défnis
+        },
+        config = function()
+            require("plugins.luasnip")
+        end,
+    },
+
 -- ************************************************************
 -- * Installation d'outils divers                             *
 -- *                                                          *
 -- * - nvim-autopairs : fermeture automatique des parenthèses *                       
 -- * - fzf.lua : findder                                      *
 -- * - nvim-treesitter : analyse syntaxique                   *
+-- * - toggleterm-nvim : terminal intégré                     *
 -- ************************************************************
 
     {

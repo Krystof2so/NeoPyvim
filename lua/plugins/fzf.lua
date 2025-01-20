@@ -12,7 +12,6 @@ fzf.setup({'fzf-native',  -- Choix du profil 'fzf-native'
         backdrop = 20,  -- Transparence
         preview = {  -- Configuration de la visualisation
             default = 'bat',
-            hidden = hidden,  -- Fichiers cachés
         },
     },
     previewers = {

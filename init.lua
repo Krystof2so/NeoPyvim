@@ -12,6 +12,10 @@ vim.g.loaded_perl_provider = 0 -- Désactiver le provider Perl (si Perl non util
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- ************************
+-- * Environnement Python *
+-- ************************
+vim.g.python3_host_prog = "/home/krystof/.venvs/nvim/bin/python"
 
 -- ***************
 -- * Activations *

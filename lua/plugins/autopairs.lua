@@ -18,6 +18,27 @@ autopairs.setup({  -- Configuration principale de nvim-autopairs
         python = { "string", "comment" },  -- Les chaînes de caractères et commentaires pour le langage Python
     },
     disable_filetype = { "TelescopePrompt", "spectre_panel" },  -- Désactive pour certains types de fichiers
+    fast_wrap = {  -- Raccourci clavier pour entourer une sélection avec une paire (ici, Alt + E)
+    map = "<M-p>",
+    -- Liste des caractères qui peuvent être utilisés pour entourer une sélection :
+    chars = { "{", "[", "(", '"', "'" },
+    -- Expression régulière qui définit quel type de caractères peut être utilisé pour la sélection
+    -- Ici, tous les caractères de fermeture comme ), ], }, mais aussi la virgule.
+    pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+    -- Décalage du curseur après la fermeture de la paire, ici 0 signifie que le curseur restera à la même position
+    offset = 0,
+    -- La touche qui doit être utilisée pour terminer la paire (ici le curseur se positionne sur le $)
+    end_key = "$",
+    -- Liste des touches à utiliser pour effectuer le wrapping (toutes les touches de "qwerty" et autres lettres)
+    keys = "qwertyuiopzxcvbnmasdfghjkl",
+    -- Si true, vérifie s'il y a une virgule avant de faire un wrapping (utile dans les listes par exemple)
+    check_comma = true,
+    -- Couleur de surlignage de la sélection (ici "Search" correspond à une couleur pré-définie)
+    highlight = "Search",
+    -- Couleur de surlignage gris pour les éléments qui ne sont pas dans la sélection active 
+    -- (ici "Comment" pour un style commenté)
+    highlight_grey = "Comment",
+    },
 })
 
 -- Configuration pour l'intégration avec nvim-cmp
