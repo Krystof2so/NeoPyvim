@@ -1,4 +1,8 @@
-# NeoPyVim
+# NeoPyvim
+
+(in construction...)
+
+This project contains an optimized configuration of Neovim for development in Python, with a French-language user interface.
 
 Ce projet contient une configuration optimisée de Neovim pour le développement en langage Python, avec une interface utilisateur francisée.
 
