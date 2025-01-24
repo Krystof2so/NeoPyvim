@@ -4,15 +4,9 @@
 
 -- Chargement du module `cmp`
 local cmp = require("cmp")
-local luasnip = require("luasnip")  -- Pour une intégration de LuaSnip
 
 cmp.setup({
-  -- LuaSnip comme moteur de snippets
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body) -- Utilise LuaSnip pour étendre les snippets
-    end,
-  },
+      completion = { completeopt = "menu,menuone" },
 
   -- Sources pour l'autocomplétion
   sources = {

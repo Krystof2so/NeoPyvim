@@ -65,29 +65,34 @@ return {
 -- * mason.nvim, mason-lspconfig.nvim) se fait dans une seule *
 -- * définition de dépendance.                                *
 -- ************************************************************
-
-    {
-        "neovim/nvim-lspconfig",
-        event = { "VeryLazy" },
+{
+  "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      {
+        "williamboman/mason-lspconfig.nvim",
         dependencies = {
-            {
-                "williamboman/mason.nvim",
-                build = ":MasonUpdate",
-                config = function()
-                    require("plugins.mason")
-                end,
+          {
+            "williamboman/mason.nvim",
+            build = ":MasonUpdate",
+            dependencies = {
+              "WhoIsSethDaniel/mason-tool-installer.nvim",
             },
-            {
-                "williamboman/mason-lspconfig.nvim",
-                config = function()
-                    require("plugins.mason_lspconfig")
-                end,
-            },
+            config = function()
+              require("plugins.mason")
+              end,
+          },
         },
-        config = function()
-            require("plugins.lspconfig")
-        end,
+
+    config = function()
+        require("plugins.mason_lspconfig")
+    end,
     },
+    },
+    config = function()
+      require("plugins.lspconfig")
+      end,
+},
 
 
 -- **********************************************************************
@@ -101,26 +106,13 @@ return {
             "hrsh7th/cmp-nvim-lsp",  -- Source pour l'autocomplétion LSP
             "hrsh7th/cmp-buffer",    -- Source pour l'autocomplétion dans le buffer courant
             "hrsh7th/cmp-path",      -- Source pour l'autocomplétion des chemins
-            "hrsh7th/cmp-vsnip",     -- Intégration avec un snippet engine
-            "hrsh7th/vim-vsnip",     -- Snippet engine (optionnel)
-            "L3MON4D3/LuaSnip",
+
         },
         config = function()
             require("plugins.cmp_nvim")
         end,
     },
 
-    {
-        "L3MON4D3/LuaSnip",
-        version = "1.*",  -- Pour la version stable
-        build = "make install_jsregexp",
-        dependencies = {
-            "rafamadriz/friendly-snippets",  -- Collection de snippets pré-défnis
-        },
-        config = function()
-            require("plugins.luasnip")
-        end,
-    },
 
 -- ************************************************************
 -- * Installation d'outils divers                             *
