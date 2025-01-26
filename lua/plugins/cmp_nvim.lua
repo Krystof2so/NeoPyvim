@@ -4,12 +4,16 @@
 
 -- Chargement du module `cmp`
 local cmp = require("cmp")
+local luasnip = require("luasnip")
 
 cmp.setup({
-      completion = { completeopt = "menu,menuone" },
-
-  -- Sources pour l'autocomplétion
-  sources = {
+  completion = { completeopt = "menu,menuone" },
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)  -- Intégration de LuaSnip avec nvim-cmp
+    end,
+  },
+  sources = {  -- Sources pour l'autocomplétion
     { name = "nvim_lsp" }, -- Source basée sur le serveur LSP
     { name = "luasnip"},   -- Source pour LuaSnip 
     { name = "buffer" },   -- Source basée sur le contenu du buffer courant

@@ -114,6 +114,20 @@ return {
     },
 
 
+-- **********************************
+-- * Luasnip : Gestion des snippets *
+-- **********************************
+
+    {
+	    "L3MON4D3/LuaSnip",
+	    version = "v2.*",                                 -- Suivre la dernière version
+        dependencies = {"rafamadriz/friendly-snippets"},  -- Snippets de style VSCode
+        config = function()
+            require("plugins.luasnip_nvim")
+        end,
+    },
+
+
 -- ************************************************************
 -- * Installation d'outils divers                             *
 -- *                                                          *
