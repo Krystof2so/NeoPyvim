@@ -43,7 +43,6 @@ Lancez ensuite Neovim et exécutez la commande suivante pour installer les plugi
 
 Voici la liste des plugins intégrés dans cette configuration :
 
-|-------------------------------------------------------------------------|
 | Plugin               | Description                                      |
 |----------------------|--------------------------------------------------|
 | **alpha.nvim**       | Page d'accueil personnalisée                     |
@@ -58,7 +57,6 @@ Voici la liste des plugins intégrés dans cette configuration :
 | **mason-lspconfig**  | Intégration Mason avec LSPConfig                 |
 | **nord.nvim**        | Thème graphique Nord                             |
 | **nvim-tree.lua**    | Explorateur de fichiers                          |
-|-------------------------------------------------------------------------|
 
 ## Fonctionnalités supplémentaires
 
@@ -83,7 +81,7 @@ Voici quelques commandes utiles pour utiliser cette configuration :
 
 ## Crédits
 
-Cette configuration a été réalisé à l'aide des diverses documentations des *plugins* installés, et je tiens à grandement remercier **[thubtenrigzin]](https://github.com/thubtenrigzin)** (alias *Bucdany*) pour ses conseils éclairés et ses encouragements.
+Cette configuration a été réalisé à l'aide des diverses documentations des *plugins* installés, et je tiens à grandement remercier **[thubtenrigzin](https://github.com/thubtenrigzin)** (alias *Bucdany*) pour ses conseils éclairés et ses encouragements.
 
 ## Licence
 
