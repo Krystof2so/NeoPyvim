@@ -43,6 +43,7 @@ Lancez ensuite Neovim et exécutez la commande suivante pour installer les plugi
 
 Voici la liste des plugins intégrés dans cette configuration :
 
+|-------------------------------------------------------------------------|
 | Plugin               | Description                                      |
 |----------------------|--------------------------------------------------|
 | **alpha.nvim**       | Page d'accueil personnalisée                     |
@@ -57,6 +58,7 @@ Voici la liste des plugins intégrés dans cette configuration :
 | **mason-lspconfig**  | Intégration Mason avec LSPConfig                 |
 | **nord.nvim**        | Thème graphique Nord                             |
 | **nvim-tree.lua**    | Explorateur de fichiers                          |
+|-------------------------------------------------------------------------|
 
 ## Fonctionnalités supplémentaires
 
@@ -64,10 +66,6 @@ Des fonctions personnalisées ont été ajoutées pour :
 
 - **fzf_functions.lua** : Fonctions pour la recherche rapide avec FZF.
 - **nvim_tree_functions.lua** : Fonctions pour la gestion des fichiers avec NvimTree.
-
-## Snippets personnalisés
-
-Des snippets pour Python sont définis dans le fichier `snippets/python.lua`, permettant d'accélérer l'écriture du code avec des raccourcis pratiques.
 
 ## Personnalisation
 
@@ -89,6 +87,6 @@ Cette configuration a été réalisé à l'aide des diverses documentations des 
 
 ## Licence
 
-Ce projet est sous licence MIT. Vous êtes libre de le modifier et de le redistribuer sous les termes de cette licence.
+Ce projet est sous [licence MIT](https://mit-license.org/). Vous êtes libre de le modifier et de le redistribuer sous les termes de cette licence.
 
 
