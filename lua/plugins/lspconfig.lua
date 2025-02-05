@@ -30,6 +30,26 @@ mason_lspconfig.setup_handlers({
         })
     end,
 
+    -- Configuration spécifique pour Texlab (LaTeX)
+    ["texlab"] = function()
+        lspconfig.texlab.setup({
+            capabilities = capabilities,
+            settings = {
+                texlab = {
+                    build = {
+                        executable = "latexmk",
+                        args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                        onSave = true, -- Compile automatiquement lors de la sauvegarde
+                    },
+                    forwardSearch = {
+                        executable = "evince-synctex",
+                        args = { "%p", "%l:1:%f" }
+                    }
+                }
+            }
+        })
+    end,
+
 --    ["pyright"] = function()
   --      lspconfig.pyright.setup({
     --        capabilities = capabilities,
