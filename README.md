@@ -14,6 +14,7 @@ Avant d'utiliser cette configuration, assurez-vous d'avoir installé :
 - **Python** (version recommandée : >= 3.8)
 - **pip** (gestionnaire de paquets Python)
 - **git** (pour cloner le projet)
+- **evince** (permet de visualiser les fichiers *.pdf* générés avec **LaTeX**)
 
 ### Installation de Neovim et des dépendances Python
 
@@ -64,6 +65,12 @@ Des fonctions personnalisées ont été ajoutées pour :
 
 - **fzf_functions.lua** : Fonctions pour la recherche rapide avec FZF.
 - **nvim_tree_functions.lua** : Fonctions pour la gestion des fichiers avec NvimTree.
+
+## Serveurs LSP installés
+
+- **Lua** : *lua-language-server* (*lua_ls*)
+- **Python** : *pyright*
+- **LaTeX** : *texlab*
 
 ## Personnalisation
 
