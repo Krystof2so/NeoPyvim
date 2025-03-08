@@ -34,7 +34,7 @@ end
 -- **********************************************************************
 function M.confirm_remove(node)
     -- Pour éviter la suppression accidentelle du répertoire racine :
-    if node.name == ".." then 
+    if node.name == ".." then
         vim.cmd("echo 'Impossible de suppprimer le répertoire racine depuis nvim-tree'")
         return  -- sortir 
     end
@@ -42,13 +42,13 @@ function M.confirm_remove(node)
     -- Suppression du fichier/répertoire sélectionner :
     while true do
       -- Demande la confirmation (boucle tant que la saisie est différente de 'o' ou 'n') :
-        local user_input = vim.fn.input("Suppression du fichier '" .. path .. "' (o/n) ? ") 
+        local user_input = vim.fn.input("Suppression du fichier '" .. path .. "' (o/n) ? ")
         user_input = user_input:upper()  -- Permet d'utiliser 'o', 'O', 'n', 'N'
         if user_input == "O" then
             -- Détermine la commande à exécuter en fonction du type :
             local command = (vim.fn.isdirectory(path) == 1) and "rm -rf '" .. path .. "'" or "rm -f '" .. path .. "'"
             local success = os.execute(command)
-            vim.cmd("echo '" .. (success and "Suppression de : " or 
+            vim.cmd("echo '" .. (success and "Suppression de : " or
                                  "Erreur lors de la suppression de : ") .. path .. "'")
             break  -- Sort de la boucle après suppression
         elseif user_input == "N" then
@@ -66,7 +66,7 @@ end
 -- **************************************************************
 function M.create_file_or_repertory(node)
     local path = node.absolute_path  -- Chemin absolu du noeud
-    
+
     -- Vérification du chemin :
     if node.name == ".." then
         path = vim.fn.getcwd()  -- Chemin = chemin du fichier racine
@@ -76,8 +76,8 @@ function M.create_file_or_repertory(node)
     end
 
     -- Demande le chemin du fichier ou répertoire :
-    prompt_input = "Créer un fichier ou répertoire ('/' à la fin si répertoire) dans " .. path .. "/"
-    local name_file_or_repertory = vim.fn.input(prompt_input)
+    PROMPT_INPUT = "Créer un fichier ou répertoire ('/' à la fin si répertoire) dans " .. path .. "/"
+    local name_file_or_repertory = vim.fn.input(PROMPT_INPUT)
     -- Si répertoire :
     local is_directory = name_file_or_repertory:sub(-1) == "/"
 
@@ -85,14 +85,14 @@ function M.create_file_or_repertory(node)
     -- uniquement une chaîne alphanumerique (l'underscore et le point sont aussi admis) : 
     local is_valid_name
     if is_directory then
-        -- Le nom du répertoire peut commencer par un point, mais pas en contenir ailleurs.
-        is_valid_name = name_file_or_repertory:match("^%.?[a-zA-Z0-9_]+/?$") and
+        -- Le nom du répertoire peut commencer par un point, mais pas en contenir ailleurs, et des underscores.
+        is_valid_name = name_file_or_repertory:match("^[_.]?[a-zA-Z0-9_]+/?$") and
                     not name_file_or_repertory:find("%.%.")
     else
-        -- Le nom du fichier peut contenir des points, mais sans doubles caractères consécutifs.
-        is_valid_name = name_file_or_repertory:match("^[a-zA-Z0-9_.]+[a-zA-Z0-9_.]*[a-zA-Z0-9]+$") and 
+        -- Le nom du fichier peut contenir des points et des underscores, mais sans doubles caractères consécutifs.
+        is_valid_name = name_file_or_repertory:match("^[_.]?[a-zA-Z0-9_.]+[a-zA-Z0-9_.]*[a-zA-Z0-9]+$") and
                     not name_file_or_repertory:find("__") and
-                    not name_file_or_repertory:find("%.%.") 
+                    not name_file_or_repertory:find("%.%.")
     end
 
     -- Si le nom est invalide, annuler la création
@@ -122,7 +122,7 @@ function M.create_file_or_repertory(node)
     local command = is_directory and "mkdir -p '" .. new_path .. "'" or "touch '" .. new_path .. "'"
     local success = os.execute(command)
 
-    vim.cmd("echo '" .. ((success and ((is_directory and "Répertoire") or "Fichier") .. " créé avec succès : ") or 
+    vim.cmd("echo '" .. ((success and ((is_directory and "Répertoire") or "Fichier") .. " créé avec succès : ") or
             "Erreur lors de la création : ") .. new_path .. "'")
 
     -- Rafraîchit nvim-tree
