@@ -32,8 +32,9 @@ api.nvim_set_hl(0, "NvimTreeSpecialFile", { fg = "#bfa6ff", bold = true })  -- F
 api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = "#5e81ac", bold = true })  -- Par défaut Bleu
 
 -- États git appliqués à NvimTreeOpenedFolderName :
-api.nvim_set_hl(0, "NvimTreeOpenedFolderNameGitDirty", { fg = "#d08770" })  -- Modifié / Orange
-api.nvim_set_hl(0, "NvimTreeOpenedFolderNameGitNew", { fg = "#6fbe6a" })  -- Nouvellement ajouté / Vert clair
+api.nvim_set_hl(0, "NvimTreeOpenedFolderNameGitDirty", { fg = "#d08770" })   -- Modifié / Orange
+api.nvim_set_hl(0, "NvimTreeOpenedFolderNameGitNew", { fg = "#6fbe6a" })     -- Nouvellement ajouté / Vert clair
+api.nvim_set_hl(0, "NvimTreeGitIgnored", { fg = "#bf616a", bg = "#d8dee9" }) -- Fichiers ignorés / bg blanc et fg rouge
 
 -- Erreurs de diagnostic / Fond rouge clair avec texte blanc / Gras :
 api.nvim_set_hl(0, "NvimTreeDiagnosticError", { bg = "#bf616a", fg = "#eceff4", bold = true }) 

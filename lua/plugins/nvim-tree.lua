@@ -99,7 +99,7 @@ nv_tree.setup({
 
     git = {
         enable = true,     -- Intégration Git activée
-        ignore = true,
+        ignore = false,    -- Affiche les fichiers ignorés par git
     },
 
     diagnostics = {
