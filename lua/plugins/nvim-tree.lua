@@ -85,7 +85,7 @@ nv_tree.setup({
             },
         },
         indent_markers = {
-        enable = true,  -- Active les marqueurs d'indentation
+            enable = true,  -- Active les marqueurs d'indentation
             icons = {  -- Marqueurs sous forme de symboles définis ci-dessous
                 corner = "╰", edge = "│", item = "├", bottom = "─", none = " ",
             },

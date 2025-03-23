@@ -46,6 +46,7 @@ opt.fileencoding = "utf-8"  -- encodage
 -- Apparence du texte
 opt.linebreak = true        -- Casse les lignes de texte seulement aux espaces (utile si wrap est activé)
 opt.showbreak = ">> "       -- Indicateur de retour à la ligne
+opt.wrap = true             -- Active le retour à la ligne automatique des lignes longues
 
 -- Interface de la ligne de commande
 opt.cmdheight = 2           -- Espace supplémentaire pour les messages dans la ligne de commande
@@ -59,3 +60,4 @@ opt.clipboard = "unnamedplus" -- Utilise le presse-papiers système pour copier/
 
 -- Gestion des couleurs
 opt.background = "dark"     -- Définit le thème sur "dark" (si le thème de la configuration le supporte)
+opt.termguicolors = true    -- Active l'utilisation des couleurs réelles dans le terminal
