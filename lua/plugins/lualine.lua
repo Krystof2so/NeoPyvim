@@ -27,14 +27,16 @@ lualine.setup({
     },
     sections = { -- Composants de la barre d'état
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_c = {
-            'filename',  -- Nom du fichier
-            path = 0,  -- Affiche uniquement le nom du fichier
-            shorting_target = 30,  -- limite l'affichage du chemin à 30 caractères  
-            symbols = {
-                modified = "●",   -- Pour indiquer un fichier modifié
-                readonly = "🔒",  -- Pour indiquer que le fichier est seulement en lecture
+            {
+                'filename',  -- Nom du fichier
+                path = 0,  -- Affiche uniquement le nom du fichier
+                shorting_target = 30,  -- limite l'affichage du chemin à 30 caractères  
+                symbols = {
+                    modified = "●",   -- Pour indiquer un fichier modifié
+                    readonly = "🔒",  -- Pour indiquer que le fichier est seulement en lecture
+                },
             },
         },
         lualine_x = {
