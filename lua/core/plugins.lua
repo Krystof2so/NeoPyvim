@@ -66,6 +66,14 @@ return {
 -- * définition de dépendance.                                *
 -- ************************************************************
 {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("plugins.treesitter")
+    end,
+  },
+
+{
   "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
