@@ -74,32 +74,23 @@ return {
   },
 
 {
-  "neovim/nvim-lspconfig",
+    "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       {
-        "williamboman/mason-lspconfig.nvim",
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate",
         dependencies = {
-          {
-            "williamboman/mason.nvim",
-            build = ":MasonUpdate",
-            dependencies = {
-              "WhoIsSethDaniel/mason-tool-installer.nvim",
-            },
-            config = function()
-              require("plugins.mason")
-              end,
-          },
+          "WhoIsSethDaniel/mason-tool-installer.nvim",
         },
-
-    config = function()
-        require("plugins.mason_lspconfig")
-    end,
-    },
+        config = function()
+          require("plugins.mason")
+        end,
+      },
     },
     config = function()
       require("plugins.lspconfig")
-      end,
+    end,
 },
 
 
