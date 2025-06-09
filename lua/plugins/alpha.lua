@@ -4,6 +4,7 @@ local M = {}
 
 function M.setup()
     local fzf_functions = require("plugins.spec_functions.fzf_functions")
+    local project_functions = require("plugins.spec_functions.project_python_env")
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
 
@@ -63,6 +64,9 @@ function M.setup()
         create_button("r", "⌛  Fichiers récemment ouverts", ":FzfLua oldfiles<CR>"),
         create_button("x", "🔎  Lancer une recherche avec 'fzf'", ":FzfLua builtin<CR>"),
         create_button("e", "🗃️  Ouvre l'explorateur de fichiers", ":NvimTreeToggle<CR>"),
+        create_button("c", "🐍  Créer un projet Python (avec 'venv')", function()
+        project_functions.create_python_project()
+        end),
         create_button("p", "💤  Ouvre le gestionnaire de plugins", ":Lazy<CR>"),
         create_button("h", "🆘  Aide (recherche avec tags)", ":FzfLua helptags<CR>"),
         create_button("q", "❌  Quitter", ":qa<CR>"),
