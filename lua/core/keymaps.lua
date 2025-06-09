@@ -8,7 +8,7 @@
 vim.g.mapleader = ' ' -- Définir la touche leader sur Espace
 
 local fzf_functions = require("plugins.spec_functions.fzf_functions")
-
+local nord = require("plugins.nord")
 
 -- ************************************************************************
 -- * Fonction pour définir des mappages avec noremap et silent par défaut *
@@ -48,6 +48,19 @@ end
 
 
 -- *******************************************
+-- * Fonction pour basculer entre les thèmes *
+-- *******************************************
+local function toggle_theme()
+    local current_theme = vim.g.colors_name
+    if current_theme == "nord" then
+        vim.cmd('colorscheme catppuccin')
+    else
+        nord.set()
+    end
+end
+
+
+-- *******************************************
 -- * Groupe de mappage pour le mode 'normal' *
 -- *******************************************
 local normal_mapping = {
@@ -67,6 +80,8 @@ local normal_mapping = {
     {'zz', ':Lazy<CR>'},        -- Ouvrir Lazy
     {'zs', ':Lazy sync<CR>'},   -- Synchroniser
     {'zu', ':Lazy update<CR>'}, -- Mettre à jour
+    -- Pour basculer entre les thèmes :
+    {'mt', toggle_theme, 'Basculer entre les thèmes Nord et Nord-Light'}
 }
 
 -- Boucle pour appliquer les mappages :

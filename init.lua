@@ -33,3 +33,5 @@ require("core.options")
 require("core.keymaps")
 require("core.lazy")
 require("core.highlights")
+-- Charger le thème Nord au démarrage
+require("plugins.nord").set()

@@ -22,6 +22,18 @@ return {
         end,
     },
 
+    { -- Thème Catppuccin
+        "catppuccin/nvim",
+        name = "catppuccin",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("catppuccin").setup({
+                flavour = "latte", -- Utilisez le thème clair par défaut
+            })
+        end,
+    },
+
     { -- Alpha : page d'accueil
         'goolord/alpha-nvim', lazy = true, event = "VimEnter",
         config = function()

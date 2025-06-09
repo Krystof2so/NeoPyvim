@@ -7,10 +7,9 @@
 ---@diagnostic disable: undefined-global
 -- Appel du fichier contenant les fonctions développées pour 'nvim-tree' :
 local nvim_tree_functions = require('plugins.spec_functions.nvim_tree_functions')
-
 local nv_tree = require("nvim-tree")
 local api = require("nvim-tree.api")
-
+local highlights = require("core.highlights")
 
 -- ********************************************************************************
 -- * Redéfinition du mapping pour des appels à des fonctions spécifiques          *
@@ -65,8 +64,7 @@ nv_tree.setup({
         full_name = true,                                         -- Affiche les noms longs dans une fenêtre flottante
         root_folder_label = nvim_tree_functions.format_root_folder,     -- Nom dossier racine en majuscules
         special_files = { "README.md", "readme.md", ".gitignore" },     -- Liste de fichiers notés comme spéciaux            
-        hidden_display = "all",                                         -- Affiche nombre de fichiers cachés et raison
-        highlight_git = "name",                      -- Mise en évidence du nom des fichiers en fonction du statut Git
+        highlight_git = true,                      -- Mise en évidence du nom des fichiers en fonction du statut Git
         highlight_diagnostics = "icon",                      -- Met en évidence les icônes en fonction des diagnostics
         highlight_modified = "icon",                                -- Met en évidence les icônes de fichiers modifiés 
         icons = {
@@ -74,14 +72,23 @@ nv_tree.setup({
                 folder_arrow = true,                               -- Activer les flèches pour les dossiers
                 file = true,                                       -- Afficher les icônes de fichiers
                 folder = true,                                     -- Afficher les icônes de dossiers
-                git = false,                                       -- Afficher les icônes Git
-                modified = false,                                  -- Afficher les icônes de fichiers modifiés
-                diagnostics = false,                               -- Afficher les diagnostics
+                git = true,                                        -- Afficher les icônes Git
+                modified = true,                                  -- Afficher les icônes de fichiers modifiés
+                diagnostics = true,                               -- Afficher les diagnostics
             },
             glyphs = {
                 folder = {
                     arrow_open = "▼",    -- Flèche pour dossier ouvert
                     arrow_closed = "▶",  -- Flèche pour dossier fermé
+                },
+                git = {
+                    unstaged = "✗",
+                    staged = "✓",
+                    unmerged = "",
+                    renamed = "➜",
+                    untracked = "★",
+                    deleted = "",
+                    ignored = "◌",
                 },
             },
         },
@@ -93,10 +100,10 @@ nv_tree.setup({
         },
     },
 
-    update_focused_file = { 
+    update_focused_file = {
         enable = true,         -- Synchronisation de l'arborescence au regard des fichiers ouverts
         update_cwd = true,     --
-    }, 
+    },
 
     git = {
         enable = true,     -- Intégration Git activée
@@ -113,9 +120,9 @@ nv_tree.setup({
             max = vim.diagnostic.severity.ERROR,     -- Afficher jusqu'aux erreurs
         },
     },
-   
+
     modified = { enable = true, },         -- Active la détection des fichiers modifiés
-    
+
     notify = { absolute_path = true },     -- Affiche le chemin complet d'un fichier dans les notifications
 
     ui = {
@@ -136,6 +143,8 @@ nv_tree.setup({
 
 })
 
+-- Appliquer les couleurs de nvim-tree après le chargement
+highlights.apply_nvim_tree_highlights()
 
 -- **************************************************************************
 -- * Fonction pour ouvrir automatiquement nvim-tree à l'ouverture de Neovim *
