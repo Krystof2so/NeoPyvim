@@ -5,6 +5,7 @@
 -- * - search_in_directory : lancer une recherche depuis un répertoire précis *
 -- ****************************************************************************
 
+---@diagnostic disable: undefined-global
 local M = {}
 
 

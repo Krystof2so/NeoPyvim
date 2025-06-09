@@ -2,6 +2,7 @@
 -- * ~/.config/nvim/lua/plugins/luasnip.lua *
 -- ******************************************
 
+---@diagnostic disable: undefined-global
 local luasnip = require("luasnip")
 
 require("luasnip.loaders.from_vscode").lazy_load()

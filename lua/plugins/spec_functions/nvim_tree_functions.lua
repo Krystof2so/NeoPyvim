@@ -11,7 +11,7 @@
 -- * A partir de la ligne 1685 du fichier                                         *
 -- ********************************************************************************
 
-
+---@diagnostic disable: undefined-global
 local M = {}
 local tree_api = require("nvim-tree.api")
 

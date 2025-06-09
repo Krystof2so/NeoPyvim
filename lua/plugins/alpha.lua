@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local fzf_functions = require("plugins.spec_functions.fzf_functions")
 
 local alpha = require("alpha")

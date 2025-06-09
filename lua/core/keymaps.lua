@@ -4,6 +4,7 @@
 -- * Gestion des raccourcis clavier personnalisés. *
 -- *************************************************
 
+---@diagnostic disable: undefined-global
 vim.g.mapleader = ' ' -- Définir la touche leader sur Espace
 
 local fzf_functions = require("plugins.spec_functions.fzf_functions")

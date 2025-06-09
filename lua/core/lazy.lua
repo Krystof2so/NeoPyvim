@@ -4,6 +4,7 @@
 -- * Gestionnaire de plugins          *
 -- ************************************
 
+---@diagnostic disable: undefined-global
 -- Définit le chemin d'installation de lazy.nvim :
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 

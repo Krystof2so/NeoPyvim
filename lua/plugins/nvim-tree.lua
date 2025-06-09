@@ -4,6 +4,7 @@
 -- * Explorateur de fichiers                              *
 -- ********************************************************
 
+---@diagnostic disable: undefined-global
 -- Appel du fichier contenant les fonctions développées pour 'nvim-tree' :
 local nvim_tree_functions = require('plugins.spec_functions.nvim_tree_functions')
 

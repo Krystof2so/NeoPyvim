@@ -6,6 +6,7 @@
 -- * ou les guillemets `""` et `''`.                           *
 -- *************************************************************
 
+---@diagnostic disable: undefined-global
 -- Charge les modules nécessaires
 local autopairs = require("nvim-autopairs")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")

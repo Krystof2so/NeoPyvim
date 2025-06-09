@@ -1,5 +1,6 @@
 -- Configurations pour Nord.Nvim
 
+---@diagnostic disable: undefined-global
 -- Définir les options globales
 vim.g.nord_contrast = false                   -- Activer un fond différent pour les barres latérales (Valeur par défaut)
 vim.g.nord_borders = false                    -- Désactiver les bordures visibles entre les fenêtres (Valeur par défaut)

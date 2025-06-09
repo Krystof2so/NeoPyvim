@@ -5,6 +5,7 @@
 -- * les numéros de lignes, les formats d'indentation, etc. *
 -- **********************************************************
 
+---@diagnostic disable: undefined-global
 -- lua/core/options.lua
 
 local opt = vim.opt  -- Raccourci pour simplifier la syntaxe
