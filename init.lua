@@ -2,7 +2,6 @@
 -- * Initialisation de la configuration de Neovim *
 -- ************************************************
 
-
 -- ******************
 -- * Désactivations *
 -- ******************
@@ -22,6 +21,8 @@ vim.g.python3_host_prog = "/home/krystof/.venvs/nvim/bin/python"
 -- ***************
 vim.opt.termguicolors = true -- Active le support des couleurs 24 bits
 
+-- Définir l'encodage par défaut à UTF-8
+vim.opt.encoding = "utf-8"
 
 -- ***************************
 -- * Charegement des modules *

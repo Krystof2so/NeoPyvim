@@ -87,11 +87,10 @@ function M.create_file_or_repertory(node)
     if is_directory then
         -- Le nom du répertoire peut commencer par un point, mais pas en contenir ailleurs, et des underscores.
         is_valid_name = name_file_or_repertory:match("^[_.]?[a-zA-Z0-9_]+/?$") and
-                    not name_file_or_repertory:find("%.%.")
+                    not name_file_or_repertory:find("%.%.")  -- Pas de double point
     else
-        -- Le nom du fichier peut contenir des points et des underscores, mais sans doubles caractères consécutifs.
+        -- Le nom du fichier peut contenir des points et des underscores.
         is_valid_name = name_file_or_repertory:match("^[_.]?[a-zA-Z0-9_.]+[a-zA-Z0-9_.]*[a-zA-Z0-9]+$") and
-                    not name_file_or_repertory:find("__") and
                     not name_file_or_repertory:find("%.%.")
     end
 
