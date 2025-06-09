@@ -13,7 +13,6 @@
 
 ---@diagnostic disable: undefined-global
 local M = {}
-local tree_api = require("nvim-tree.api")
 
 -- *********************************************
 -- * Formatage du dossier racine en majuscules *

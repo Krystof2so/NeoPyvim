@@ -15,36 +15,36 @@ if not vim.loop.fs_stat(lazypath) then
     "git",
     "clone",
     "--filter=blob:none",
-    "--branch=stable", 
+    "--branch=stable",
     "https://github.com/folke/lazy.nvim.git",
     lazypath,
   })
 end
 
 -- Ajout du chemin du plugin au 'runtimepath' de Neovim pour le charger :
-vim.opt.rtp:prepend(lazypath) 
+vim.opt.rtp:prepend(lazypath)
 
 -- Configure et initialise lazy.nvim pour gérer la liste de plugins :
 require("lazy").setup({
   -- Comportement par défaut
-  defaults = { 
+  defaults = {
     lazy = true,         -- Chargement paresseux (sauf si spécifié différemment dans la configuration du plugin)
-  }, 
+  },
 
   spec = {
     import = "core.plugins",  -- Importation de la liste des plugins depuis plugins.lua
   },
 
   -- Indique le thème à utiliser 
-  install = { 
-    colorscheme = { "nordic" } 
+  install = {
+    colorscheme = { "nordic" }
   },
 
   -- Section de vérification des mises à jour
   checker = {
     enabled = true,  -- Active la vérification des mises à jour
   },
-  
+
   -- Détection des changements dans les fichiers de configuration
   change_detection = {
     -- Verification et recharge de l'interface utilisateur

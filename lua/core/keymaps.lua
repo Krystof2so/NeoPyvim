@@ -42,7 +42,7 @@ local function save_and_close_buffers_open_alpha()
     end
     -- Ouvrir Alpha-nvim
     if package.loaded['alpha'] then
-        require('alpha').start()
+        require('plugins.alpha').start()
     end
 end
 
@@ -56,7 +56,7 @@ local normal_mapping = {
     -- Mapping pour bufferline :
     { '<Tab>', ':BufferLineCycleNext<CR>', 'Buffer suivant' },
     { '<S-Tab>', ':BufferLineCyclePrev<CR>', 'Buffer précédent' },
-    { '<leader>bd', ':bd<CR>', "Fermer l'onglet actif" }, 
+    { '<leader>bd', ':bd<CR>', "Fermer l'onglet actif" },
     -- Mappind pour fzf-lua :
     { 'ff', ':FzfLua files<CR>', "Rechercher un fichier" },
     { 'fd', fzf_functions.search_in_directory, "Rechercher dans un répertoire spécifié" },

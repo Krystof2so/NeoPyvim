@@ -2,6 +2,8 @@
 -- * Initialisation de la configuration de Neovim *
 -- ************************************************
 
+---@diagnostic disable: undefined-global
+
 -- ******************
 -- * Désactivations *
 -- ******************

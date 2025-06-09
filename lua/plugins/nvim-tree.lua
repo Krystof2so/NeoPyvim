@@ -8,7 +8,7 @@
 -- Appel du fichier contenant les fonctions développées pour 'nvim-tree' :
 local nvim_tree_functions = require('plugins.spec_functions.nvim_tree_functions')
 
-nv_tree = require("nvim-tree")
+local nv_tree = require("nvim-tree")
 local api = require("nvim-tree.api")
 
 
@@ -70,7 +70,7 @@ nv_tree.setup({
         highlight_diagnostics = "icon",                      -- Met en évidence les icônes en fonction des diagnostics
         highlight_modified = "icon",                                -- Met en évidence les icônes de fichiers modifiés 
         icons = {
-            show = { 
+            show = {
                 folder_arrow = true,                               -- Activer les flèches pour les dossiers
                 file = true,                                       -- Afficher les icônes de fichiers
                 folder = true,                                     -- Afficher les icônes de dossiers

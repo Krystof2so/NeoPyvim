@@ -36,4 +36,4 @@ fzf.setup({'fzf-native',  -- Choix du profil 'fzf-native'
         path_shorten = 6,  -- Nbre de caractères max dans le nom de chaque répertoire d'un chemin
     },
 
-}) 
+})

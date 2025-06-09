@@ -38,7 +38,7 @@ api.nvim_set_hl(0, "NvimTreeOpenedFolderNameGitNew", { fg = "#6fbe6a" })     -- 
 api.nvim_set_hl(0, "NvimTreeGitIgnored", { fg = "#bf616a", bg = "#d8dee9" }) -- Fichiers ignorés / bg blanc et fg rouge
 
 -- Erreurs de diagnostic / Fond rouge clair avec texte blanc / Gras :
-api.nvim_set_hl(0, "NvimTreeDiagnosticError", { bg = "#bf616a", fg = "#eceff4", bold = true }) 
+api.nvim_set_hl(0, "NvimTreeDiagnosticError", { bg = "#bf616a", fg = "#eceff4", bold = true })
 
 -- Avertissements de diagnostic / Fond orange clair avec texte noir / Gras :
 api.nvim_set_hl(0, "NvimTreeDiagnosticWarning", { bg = "#d08770", fg = "#2e3440", bold = true })
