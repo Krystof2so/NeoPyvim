@@ -65,7 +65,7 @@ function M.setup()
         create_button("x", "🔎  Lancer une recherche avec 'fzf'", ":FzfLua builtin<CR>"),
         create_button("e", "🗃️  Ouvre l'explorateur de fichiers", ":NvimTreeToggle<CR>"),
         create_button("c", "🐍  Créer un projet Python (avec 'venv')", function()
-        project_functions.create_python_project()
+            require("pyflowenv").create_python_project()
         end),
         create_button("p", "💤  Ouvre le gestionnaire de plugins", ":Lazy<CR>"),
         create_button("h", "🆘  Aide (recherche avec tags)", ":FzfLua helptags<CR>"),

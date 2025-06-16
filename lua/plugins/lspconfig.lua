@@ -30,6 +30,25 @@ for _, server in ipairs(servers) do
                 -- Configuration spécifique à Ruff
             },
         })
+
+    elseif server == 'lua_ls' then
+        lspconfig.lua_ls.setup({
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim" }, -- Corrige les avertissements 'undefined global'
+                    },
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file("", true),
+                        checkThirdParty = false,
+                    },
+                    telemetry = {
+                        enable = false,
+                    },
+                },
+            },
+        })
+
     else
         lspconfig[server].setup({})  -- Configure chaque serveur LSP avec les options par défaut
     end

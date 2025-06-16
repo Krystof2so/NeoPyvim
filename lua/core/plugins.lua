@@ -173,4 +173,10 @@ return {
         end
     },
 
+    {
+        "Krystof2so/pyflowenv-nvim",
+        config = function()
+            require("pyflowenv").setup() -- ou rien si pas de setup
+        end
+    },
 }
