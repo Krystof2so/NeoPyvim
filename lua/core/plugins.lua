@@ -166,11 +166,12 @@ return {
     },
 
     { -- nvim-treesitter : analyseur syntaxique
-        'nvim-treesitter/nvim-treesitter', lazy = false,
+        'nvim-treesitter/nvim-treesitter',
+        lazy = false,
         build = ':TSUpdate', -- Mettre à jour les parsers après l'installation
         config = function()
-            require('nvim-treesitter.configs').setup {}
-        end
+            require('plugins.treesitter')
+        end,
     },
 
     {
