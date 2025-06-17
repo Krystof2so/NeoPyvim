@@ -19,5 +19,5 @@
   "nvim-tree.lua": { "branch": "master", "commit": "6b5b36659688767fb9f133bb83024ab1466fe5cd" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
   "nvim-web-devicons": { "branch": "master", "commit": "1fb58cca9aebbc4fd32b086cb413548ce132c127" },
-  "pyflowenv-nvim": { "branch": "main", "commit": "0bbaaeefb309035ff104a3935829667b14c0eadf" }
+  "pyflowenv-nvim": { "branch": "main", "commit": "dc8968d6aefdbaf70618b1adacca3fdd5b8588e8" }
 }
