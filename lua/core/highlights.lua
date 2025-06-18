@@ -4,7 +4,6 @@
 -- * Couleurs de mise en évidence           *
 -- ******************************************
 
----@diagnostic disable: undefined-global
 local api = vim.api
 
 

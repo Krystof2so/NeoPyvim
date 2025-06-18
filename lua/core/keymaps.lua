@@ -19,34 +19,6 @@ local function map(mode, lhs, rhs, opts)
 end
 
 
--- ************************************************************************************
--- * Fonction personnalisée pour fermer les buffers, fermer nvim-tree et ouvrir Alpha *
--- ************************************************************************************
-local function save_and_close_buffers_open_alpha()
-    -- Parcourir tous les buffers ouverts
-    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-        if vim.api.nvim_buf_is_loaded(bufnr) then
-            -- Enregistrement du buffer si modifié
-            if vim.api.nvim_buf_get_option(bufnr, 'modified') then
-                vim.api.nvim_buf_call(bufnr, function()
-                    vim.cmd('write')
-                end)
-            end
-            -- Fermer le buffer
-            vim.api.nvim_buf_delete(bufnr, {force = true})
-        end
-    end
-    -- Fermer nvim-tree si ouvert
-    if package.loaded['nvim-tree'] then
-        require('nvim-tree.api').tree.close()
-    end
-    -- Ouvrir Alpha-nvim
-    if package.loaded['alpha'] then
-        require('plugins.alpha').start()
-    end
-end
-
-
 -- *******************************************
 -- * Fonction pour basculer entre les thèmes *
 -- *******************************************
@@ -64,8 +36,6 @@ end
 -- * Groupe de mappage pour le mode 'normal' *
 -- *******************************************
 local normal_mapping = {
-    -- Pour lancer Alpha avec enregistrement et fermeture des buffers et de l'explorateur 'nvim-tree' 
-    { '<leader>a', save_and_close_buffers_open_alpha },
     -- Mapping pour bufferline :
     { '<Tab>', ':BufferLineCycleNext<CR>', 'Buffer suivant' },
     { '<S-Tab>', ':BufferLineCyclePrev<CR>', 'Buffer précédent' },
