@@ -58,6 +58,8 @@ Voici la liste des plugins intégrés dans cette configuration :
 | **mason-lspconfig**  | Intégration Mason avec LSPConfig                 |
 | **nord.nvim**        | Thème graphique Nord                             |
 | **nvim-tree.lua**    | Explorateur de fichiers                          |
+| **pyflowenv**        | Créateur de projets Python                       |
+| **telescope          | Recherche sur listes                             |
 
 ## Fonctionnalités supplémentaires
 

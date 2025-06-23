@@ -70,6 +70,12 @@ return {
         lazy = true,
     },
 
+    {  --telescope-nvim : outil de recherche sur des listes
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = true,  -- Abreviation 'Lazy' qui appelle automatiquement require("telescope").setup() avec les valeurs par défaut.
+    },
+
 
 -- ************************************************************
 -- * Configuration des plugins liés au LSP                    *
@@ -145,7 +151,7 @@ return {
 -- * - nvim-autopairs : fermeture automatique des parenthèses *                       
 -- * - fzf.lua : findder                                      *
 -- * - nvim-treesitter : analyse syntaxique                   *
--- * - toggleterm-nvim : terminal intégré                     *
+-- * - pyflowenv-nvim : créer des projets Python              *
 -- ************************************************************
 
     {
@@ -174,11 +180,31 @@ return {
         end,
     },
 
-    {
+    {  -- nvim-telescope : recherche dans listes
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-file-browser.nvim",
+        },
+        config = function()
+            require("telescope").setup({
+                extensions = {
+                    file_browser = {
+                        theme = "dropdown",
+                        hijack_netrw = true,
+                    },
+                },
+            })
+            require("telescope").load_extension("file_browser")
+        end,
+    },
+
+    {  -- pyflowenv : créer des projets Python
         "Krystof2so/pyflowenv-nvim",
         config = function()
-            require("pyflowenv").setup() -- ou rien si pas de setup
+            require("pyflowenv").setup()
         end,
         lazy = false,
     },
+
 }
