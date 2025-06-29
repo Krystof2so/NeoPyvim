@@ -145,6 +145,23 @@ return {
     },
 
 
+-- ************
+-- * Débogage *
+-- ************
+
+    {
+      "mfussenegger/nvim-dap",
+      dependencies = {
+        "rcarriga/nvim-dap-ui",     -- Interface visuelle pour le débogueur
+        "mfussenegger/nvim-dap-python",
+        "nvim-neotest/nvim-nio", -- Dépendance obligatoire pour nvim-dap-ui
+      },
+      config = function()
+        require("plugins.dap")
+      end,
+    },
+
+
 -- ************************************************************
 -- * Installation d'outils divers                             *
 -- *                                                          *
@@ -180,22 +197,25 @@ return {
         end,
     },
 
-    {  -- nvim-telescope : recherche dans listes
+    {
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope-file-browser.nvim",
+            {
+                "nvim-telescope/telescope-file-browser.nvim",
+                config = function()
+                    require("telescope").load_extension("file_browser")
+                end,
+            },
         },
         config = function()
             require("telescope").setup({
                 extensions = {
                     file_browser = {
-                        theme = "dropdown",
                         hijack_netrw = true,
                     },
                 },
             })
-            require("telescope").load_extension("file_browser")
         end,
     },
 
