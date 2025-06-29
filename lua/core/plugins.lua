@@ -153,8 +153,14 @@ return {
       "mfussenegger/nvim-dap",
       dependencies = {
         "rcarriga/nvim-dap-ui",     -- Interface visuelle pour le débogueur
-        "mfussenegger/nvim-dap-python",
+        "mfussenegger/nvim-dap-python",  -- Extension spécifique au langage 'Python'
         "nvim-neotest/nvim-nio", -- Dépendance obligatoire pour nvim-dap-ui
+        {
+          "theHamsta/nvim-dap-virtual-text",
+          config = function()
+            require("plugins.dap_virtual_text")
+          end,
+        },
       },
       config = function()
         require("plugins.dap")
