@@ -4,7 +4,6 @@ local M = {}
 
 function M.setup()
     local fzf_functions = require("plugins.spec_functions.fzf_functions")
-    local project_functions = require("plugins.spec_functions.project_python_env")
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
 
@@ -57,14 +56,13 @@ function M.setup()
 
     -- Configuration des boutons du menu
     dashboard.section.buttons.val = {
-        create_button("f", "🔍  Rechercher fichier (répertoire courant)", ":FzfLua files<CR>"),
-        create_button("d", "📂  Rechercher fichier dans un répertoire", function()
+        create_button("f", "🔍  Rechercher fichier dans un répertoire", function()
             fzf_functions.search_in_directory()
         end),
         create_button("r", "⌛  Fichiers récemment ouverts", ":FzfLua oldfiles<CR>"),
-        create_button("x", "🔎  Lancer une recherche avec 'fzf'", ":FzfLua builtin<CR>"),
+        create_button("m", "🗂️  Gestion des projets", "<cmd>PyflowManage<CR>"),
         create_button("e", "🗃️  Ouvre l'explorateur de fichiers", ":NvimTreeToggle<CR>"),
-        create_button("c", "🐍  Créer un projet Python (avec 'venv')", "<cmd>CreatePythonVenv<CR>"),
+        create_button("c", "🐍  Créer un projet Python (avec 'venv')", "<cmd>PyflowCreate<CR>"),
         create_button("p", "💤  Ouvre le gestionnaire de plugins", ":Lazy<CR>"),
         create_button("h", "🆘  Aide (recherche avec tags)", ":FzfLua helptags<CR>"),
         create_button("q", "❌  Quitter", ":qa<CR>"),

@@ -64,48 +64,42 @@ end
 -- * Redéfinit le mapping de la touche 'a' dans 'nvim-tree.lua' *
 -- **************************************************************
 function M.create_file_or_repertory(node)
-    local path = node.absolute_path  -- Chemin absolu du noeud
+    local path = node.absolute_path
 
-    -- Vérification du chemin :
+    -- Gestion du chemin de base
     if node.name == ".." then
-        path = vim.fn.getcwd()  -- Chemin = chemin du fichier racine
-    elseif node.type == "file" then  -- Si sélection d'un fichier
+        path = vim.fn.getcwd()
+    elseif node.type == "file" then
         path = path:match("(.*/)")
-        path = path:sub(1, -2)  -- Supprime le slash final
+        path = path:sub(1, -2)
     end
 
-    -- Demande le chemin du fichier ou répertoire :
+    -- Demande le nom à créer
     PROMPT_INPUT = "Créer un fichier ou répertoire ('/' à la fin si répertoire) dans " .. path .. "/"
     local name_file_or_repertory = vim.fn.input(PROMPT_INPUT)
-    -- Si répertoire :
+
+    -- Détermine s'il s'agit d'un répertoire (se termine par un slash)
     local is_directory = name_file_or_repertory:sub(-1) == "/"
 
-    -- Vérification de la saisie de l'utilisateur pour le nom du fichier ou répertoire,
-    -- uniquement une chaîne alphanumerique (l'underscore et le point sont aussi admis) : 
-    local is_valid_name
-    if is_directory then
-        -- Le nom du répertoire peut commencer par un point, mais pas en contenir ailleurs, et des underscores.
-        is_valid_name = name_file_or_repertory:match("^[_.]?[a-zA-Z0-9_]+/?$") and
-                    not name_file_or_repertory:find("%.%.")  -- Pas de double point
-    else
-        -- Le nom du fichier peut contenir des points et des underscores.
-        is_valid_name = name_file_or_repertory:match("^[_.]?[a-zA-Z0-9_.]+[a-zA-Z0-9_.]*[a-zA-Z0-9]+$") and
-                    not name_file_or_repertory:find("%.%.")
+    -- Nettoie le nom s'il y a un slash terminal (utile pour validation)
+    local clean_name = is_directory and name_file_or_repertory:sub(1, -2) or name_file_or_repertory
+
+    -- Vérifie la validité du nom
+    local is_valid_name = false
+    if clean_name ~= "" and not clean_name:find("%.%.") then
+        is_valid_name = clean_name:match("^[a-zA-Z0-9_.]+[a-zA-Z0-9_.%-]*$")
     end
 
-    -- Si le nom est invalide, annuler la création
-    if not is_valid_name or name_file_or_repertory == "" then
+    -- Si nom invalide
+    if not is_valid_name then
         vim.cmd("echo 'Création annulée : chemin invalide.'")
         return
     end
 
-    -- Crée le chemin final :
-    local new_path = path .. "/" .. name_file_or_repertory
-    if is_directory then
-        new_path = new_path:sub(1, -2)  -- Supprime le "/" final pour le répertoire
-    end
+    -- Construit le chemin final
+    local new_path = path .. "/" .. clean_name
 
-    -- Vérifie si un fichier ou un répertoire existe déjà avec le même nom :
+    -- Vérifie les collisions
     local start_message = "Création impossible via nvim-tree, un"
     local end_message = "porte déjà ce nom."
     if vim.fn.filereadable(new_path) == 1 then
@@ -116,12 +110,12 @@ function M.create_file_or_repertory(node)
         return
     end
 
-    -- Commandes shell pour créer le fichier ou répertoire :
+    -- Crée fichier ou dossier
     local command = is_directory and "mkdir -p '" .. new_path .. "'" or "touch '" .. new_path .. "'"
     local success = os.execute(command)
 
     vim.cmd("echo '" .. ((success and ((is_directory and "Répertoire") or "Fichier") .. " créé avec succès : ") or
-            "Erreur lors de la création : ") .. new_path .. "'")
+        "Erreur lors de la création : ") .. new_path .. "'")
 
     -- Rafraîchit nvim-tree
     vim.cmd("NvimTreeRefresh")
